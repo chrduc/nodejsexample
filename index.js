@@ -9,11 +9,11 @@ http.createServer(function (req, res) {
   fs.readFile(filename, function(err, data) {
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
-      return res.end("404 Not Found");
+      res.write(uc("Hello World!"));
+      return res.end();
     }  
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
-    res.write(uc("Hello World!"));
     return res.end();
   });
 }).listen(8080);
